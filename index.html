@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Portfolio - 23 Members</title>
+    <!-- CSS inline untuk kemudahan, bisa dipindah ke file terpisah jika diperlukan -->
+    <style>
+        /* Reset dasar untuk konsistensi */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body dengan tema teknis: background gelap, font monospace */
+        body {
+            font-family: 'Courier New', monospace; /* Font teknis seperti kode */
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
+        }
+
+        /* Header sederhana */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1e1e1e; /* Sedikit lebih terang */
+            border-bottom: 2px solid #00ff00; /* Accent hijau teknis */
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #00ff00; /* Hijau neon */
+        }
+
+        /* Container utama untuk grid portofolio */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Kartu portofolio */
+        .portfolio-card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi sederhana */
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px); /* Efek hover ringan */
+            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Gambar responsif */
+        }
+
+        .portfolio-card .content {
+            padding: 15px;
+        }
+
+        .portfolio-card h3 {
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-card p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-card a {
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .portfolio-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer sederhana */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1e1e1e;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dengan judul tema teknis -->
+    <header>
+        <h1>Tech Portfolio Showcase</h1>
+        <p>Highlighting 23 Innovative Minds in Technology</p>
+    </header>
+
+    <!-- Container untuk kartu portofolio, akan diisi oleh JavaScript -->
+    <div class="portfolio-container" id="portfolio-container">
+        <!-- Kartu akan di-generate secara dinamis di sini -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Tech Portfolio. Built with HTML, CSS, and JS.</p>
+    </footer>
+
+    <!-- JavaScript untuk membuat konten dinamis, ringan dan mudah dimodifikasi -->
+    <script>
+        // Array data untuk 23 orang (placeholder). Mudah dimodifikasi: tambah objek baru atau ubah properti.
+        // Gambar menggunakan placeholder dari Lorem Picsum (gratis dan random).
+        const members = [
+            { name: "Alex Tech", image: "https://picsum.photos/300/200?random=1", description: "Full-stack developer specializing in AI.", link: "#" },
+            { name: "Jordan Code", image: "https://picsum.photos/300/200?random=2", description: "Cybersecurity expert with a passion for ethical hacking.", link: "#" },
+            { name: "Taylor Innovate", image: "https://picsum.photos/300/200?random=3", description: "UI/UX designer focused on tech interfaces.", link: "#" },
+            { name: "Morgan Data", image: "https://picsum.photos/300/200?random=4", description: "Data scientist analyzing big tech trends.", link: "#" },
+            { name: "Casey Robot", image: "https://picsum.photos/300/200?random=5", description: "Robotics engineer building the future.", link: "#" },
+            { name: "Riley Cloud", image: "https://picsum.photos/300/200?random=6", description: "Cloud architect for scalable solutions.", link: "#" },
+            { name: "Avery Block", image: "https://picsum.photos/300/200?random=7", description: "Blockchain developer pioneering crypto.", link: "#" },
+            { name: "Jamie VR", image: "https://picsum.photos/300/200?random=8", description: "VR/AR specialist creating immersive experiences.", link: "#" },
+            { name: "Pat IoT", image: "https://picsum.photos/300/200?random=9", description: "IoT innovator connecting devices.", link: "#" },
+            { name: "Drew AI", image: "https://picsum.photos/300/200?random=10", description: "Machine learning engineer.", link: "#" },
+            { name: "Sam DevOps", image: "https://picsum.photos/300/200?random=11", description: "DevOps guru streamlining deployments.", link: "#" },
+            { name: "Lee Mobile", image: "https://picsum.photos/300/200?random=12", description: "Mobile app developer for all platforms.", link: "#" },
+            { name: "Kim Web", image: "https://picsum.photos/300/200?random=13", description: "Web developer with a focus on performance.", link: "#" },
+            { name: "Robin Game", image: "https://picsum.photos/300/200?random=14", description: "Game developer crafting interactive worlds.", link: "#" },
+            { name: "Sky Network", image: "https://picsum.photos/300/200?random=15", description: "Network engineer ensuring connectivity.", link: "#" },
+            { name: "Jordan Embed", image: "https://picsum.photos/300/200?random=16", description: "Embedded systems specialist.", link: "#" },
+            { name: "Alex Quantum", image: "https://picsum.photos/300/200?random=17", description: "Quantum computing researcher.", link: "#" },
+            { name: "Taylor Biotech", image: "https://picsum.photos/300/200?random=18", description: "Biotech tech integrator.", link: "#" },
+            { name: "Morgan FinTech", image: "https://picsum.photos/300/200?random=19", description: "FinTech developer securing transactions.", link: "#" },
+            { name: "Casey Drone", image: "https://picsum.photos/300/200?random=20", description: "Drone technology expert.", link: "#" },
+            { name: "Riley Space", image: "https://picsum.photos/300/200?random=21", description: "Space tech engineer.", link: "#" },
+            { name: "Avery GreenTech", image: "https://picsum.photos/300/200?random=22", description: "Sustainable tech advocate.", link: "#" },
+            { name: "Jamie EdTech", image: "https://picsum.photos/300/200?random=23", description: "EdTech creator enhancing learning.", link: "#" }
+        ];
+
+        // Fungsi untuk generate kartu portofolio secara dinamis
+        function generatePortfolio() {
+            const container = document.getElementById('portfolio-container');
+            members.forEach(member => {
+                // Buat elemen kartu
+                const card = document.createElement('div');
+                card.className = 'portfolio-card';
+                
+                // Isi kartu dengan data dari array
+                card.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}">
+                    <div class="content">
+                        <h3>${member.name}</h3>
+                        <p>${member.description}</p>
+                        <a href="${member.link}" target="_blank">View Portfolio</a>
+                    </div>
+                `;
+                
+                // Tambahkan kartu ke container
+                container.appendChild(card);
+            });
+        }
+
+        // Panggil fungsi saat halaman load
+        window.onload = generatePortfolio;
+    </script>
+</body>
+</html>
