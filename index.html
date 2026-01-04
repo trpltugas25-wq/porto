@@ -1,177 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Portfolio - 23 Members</title>
-    <!-- CSS inline untuk kemudahan, bisa dipindah ke file terpisah jika diperlukan -->
-    <style>
-        /* Reset dasar untuk konsistensi */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body dengan tema teknis: background gelap, font monospace */
-        body {
-            font-family: 'Courier New', monospace; /* Font teknis seperti kode */
-            background-color: #121212; /* Dark background */
-            color: #e0e0e0; /* Light text */
-            line-height: 1.6;
-        }
-
-        /* Header sederhana */
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #1e1e1e; /* Sedikit lebih terang */
-            border-bottom: 2px solid #00ff00; /* Accent hijau teknis */
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            color: #00ff00; /* Hijau neon */
-        }
-
-        /* Container utama untuk grid portofolio */
-        .portfolio-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Kartu portofolio */
-        .portfolio-card {
-            background-color: #1e1e1e;
-            border: 1px solid #333;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi sederhana */
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px); /* Efek hover ringan */
-            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
-        }
-
-        .portfolio-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover; /* Gambar responsif */
-        }
-
-        .portfolio-card .content {
-            padding: 15px;
-        }
-
-        .portfolio-card h3 {
-            color: #00ff00;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-card p {
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-card a {
-            color: #00ff00;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .portfolio-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer sederhana */
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #1e1e1e;
-            border-top: 1px solid #333;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Bebas+Neue&family=Funnel+Display:wght@300..800&family=Vend+Sans:ital,wght@0,300..700;1,300..700&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header dengan judul tema teknis -->
     <header>
-        <h1>Tech Portfolio Showcase</h1>
-        <p>Highlighting 23 Innovative Minds in Technology</p>
+        <nav>
+            <logo>TRPL</logo>
+            <ul>
+                <li>About</li>
+                <li>Our Teams</li>
+                <li>Contacts</li>
+            </ul>
+        </nav>
+        <hero>
+            <div id="intro">
+                <span>An Ambitious Project</span>
+                <span> That We've made by our Dedication and Hardwork</span>
+            </div>
+            <button> Try it Now </button>
+        </hero>
     </header>
-
-    <!-- Container untuk kartu portofolio, akan diisi oleh JavaScript -->
-    <div class="portfolio-container" id="portfolio-container">
-        <!-- Kartu akan di-generate secara dinamis di sini -->
-    </div>
-
-    <!-- Footer -->
+    <main>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <content>
+            
+            <div id="link">
+                <img>
+            </div>
+            <div class="Wrapper">
+                <div class="Box">
+                    <span class="Title"> What is Our Project </span>
+                    <p id="text1">What is our project ?, We're literally making an Ai Chatbot using the thing called <span class="hl">STB</span> and something called <span class="hl">N8N</span>. Through an platform called <span class="hl">Telegram</span>. But how does it work, so the bot uses <span class="hl">N8N</span> as it's operator then connected to a device called <span class="hl">STB</span> as an server, where users can interact with the bot using that previous app we talked about. And thats what our project does.<span class="cursor"></span></p>
+                </div>
+                <div class="Box">
+                    <span class="Title"> How we Made it </span>
+                    <p id="text2">We made this project by using an unused <span class="hl">STB</span>  device as it's <span class="hl">server</span>. But here comes the question that you've all might ask about our project "Why you're using that thing?". So the answer to it's we know that buying a new and fully functionalized server would cost much more, So to solve it we search some solutions on the internet then we've found a simple tutorial how to make a low cost server by reusing and repurposing an old <span class="hl">STB</span>  device, so by that we can save more and use it for other, and also by doing this we can help saving the enviroment too by reusing the unused device.<span class="cursor"></span></p>
+                </div>
+            </div>
+        </content>
+        <gallery>
+            <div>
+                <span class="Title">Software Division</span>
+                <p class="desc">The Software Division focuses on how we made the ai work like how we code, run, testing the model, and how it behave before we publish it to the general. This Division is also responsible for making our landing page about what our project are<span class="cursor"></span></p>
+            </div>
+            <div>
+                <span class="Title">Hardware Division</span>
+                <p class="desc">A Crucial part of the team. This Division is responsible for making the server so that our ai can run and be accessed through any platform. Not only the inner parts but they also focus on designing the Hardware exterior, so it wouldn't look like a scrap.<span class="cursor"></span></p>
+            </div>
+            <div>
+                <span class="Title">Media Division</span>
+                <p class="desc">Our Media Division also contribute to our project. These contribution give us an explanation about how we made our project, how it works, recording all of our progress on what we've been doing, and don't forget that they also made the promotion about our project.<span class="cursor"></span></p>
+            </div>
+        </gallery>
+    </main>
     <footer>
-        <p>@ 2025 MALIK SRG. Built with HTML, CSS, and JS .</p>
+        <div> Follow Us On </div>
+        <div> <img src="Instagram.png"> </div>
+        <div> © 2025 MALIK SRG. Built with HTML, CSS, and JS </div>
     </footer>
-
-    <!-- JavaScript untuk membuat konten dinamis, ringan dan mudah dimodifikasi -->
-    <script>
-        // Array data untuk 23 orang (placeholder). Mudah dimodifikasi: tambah objek baru atau ubah properti.
-        // Gambar menggunakan placeholder dari Lorem Picsum (gratis dan random).
-        const members = [
-            { name: "Alex Tech", image: "https://picsum.photos/300/200?random=1", description: "Full-stack developer specializing in AI.", link: "#" },
-            { name: "Jordan Code", image: "https://picsum.photos/300/200?random=2", description: "Cybersecurity expert with a passion for ethical hacking.", link: "#" },
-            { name: "Taylor Innovate", image: "https://picsum.photos/300/200?random=3", description: "UI/UX designer focused on tech interfaces.", link: "#" },
-            { name: "Morgan Data", image: "https://picsum.photos/300/200?random=4", description: "Data scientist analyzing big tech trends.", link: "#" },
-            { name: "Casey Robot", image: "https://picsum.photos/300/200?random=5", description: "Robotics engineer building the future.", link: "#" },
-            { name: "Riley Cloud", image: "https://picsum.photos/300/200?random=6", description: "Cloud architect for scalable solutions.", link: "#" },
-            { name: "Avery Block", image: "https://picsum.photos/300/200?random=7", description: "Blockchain developer pioneering crypto.", link: "#" },
-            { name: "Jamie VR", image: "https://picsum.photos/300/200?random=8", description: "VR/AR specialist creating immersive experiences.", link: "#" },
-            { name: "Pat IoT", image: "https://picsum.photos/300/200?random=9", description: "IoT innovator connecting devices.", link: "#" },
-            { name: "Drew AI", image: "https://picsum.photos/300/200?random=10", description: "Machine learning engineer.", link: "#" },
-            { name: "Sam DevOps", image: "https://picsum.photos/300/200?random=11", description: "DevOps guru streamlining deployments.", link: "#" },
-            { name: "Lee Mobile", image: "https://picsum.photos/300/200?random=12", description: "Mobile app developer for all platforms.", link: "#" },
-            { name: "Kim Web", image: "https://picsum.photos/300/200?random=13", description: "Web developer with a focus on performance.", link: "#" },
-            { name: "Robin Game", image: "https://picsum.photos/300/200?random=14", description: "Game developer crafting interactive worlds.", link: "#" },
-            { name: "Sky Network", image: "https://picsum.photos/300/200?random=15", description: "Network engineer ensuring connectivity.", link: "#" },
-            { name: "Jordan Embed", image: "https://picsum.photos/300/200?random=16", description: "Embedded systems specialist.", link: "#" },
-            { name: "Alex Quantum", image: "https://picsum.photos/300/200?random=17", description: "Quantum computing researcher.", link: "#" },
-            { name: "Taylor Biotech", image: "https://picsum.photos/300/200?random=18", description: "Biotech tech integrator.", link: "#" },
-            { name: "Morgan FinTech", image: "https://picsum.photos/300/200?random=19", description: "FinTech developer securing transactions.", link: "#" },
-            { name: "Casey Drone", image: "https://picsum.photos/300/200?random=20", description: "Drone technology expert.", link: "#" },
-            { name: "Riley Space", image: "https://picsum.photos/300/200?random=21", description: "Space tech engineer.", link: "#" },
-            { name: "Avery GreenTech", image: "https://picsum.photos/300/200?random=22", description: "Sustainable tech advocate.", link: "#" },
-            { name: "Jamie EdTech", image: "https://picsum.photos/300/200?random=23", description: "EdTech creator enhancing learning.", link: "#" }
-        ];
-
-        // Fungsi untuk generate kartu portofolio secara dinamis
-        function generatePortfolio() {
-            const container = document.getElementById('portfolio-container');
-            members.forEach(member => {
-                // Buat elemen kartu
-                const card = document.createElement('div');
-                card.className = 'portfolio-card';
-                
-                // Isi kartu dengan data dari array
-                card.innerHTML = `
-                    <img src="${member.image}" alt="${member.name}">
-                    <div class="content">
-                        <h3>${member.name}</h3>
-                        <p>${member.description}</p>
-                        <a href="${member.link}" target="_blank">View Portfolio</a>
-                    </div>
-                `;
-                
-                // Tambahkan kartu ke container
-                container.appendChild(card);
-            });
-        }
-
-        // Panggil fungsi saat halaman load
-        window.onload = generatePortfolio;
-    </script>
 </body>
-
-</html>
-
