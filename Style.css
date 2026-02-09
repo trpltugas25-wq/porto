@@ -1,403 +1,178 @@
 body{
     margin: 0px;
-    min-height: 280vh;
-    width: 100%;
-    display: flex;
-    overflow-x: hidden;
-    flex-direction: column;
-}
-header{ 
-    background:url(heroBg.svg);
-    background-size: cover;
-    height: 720px;
-    width: 100%;
-    z-index: -5;
-}
-button{
-    background: rgba(0, 0, 0, 0.39);
-    color: white;
-    font-size: 30px;
-    font-family: "Bebas Neue";
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.404);
-    padding: 5px 20px;
-    border-color: white;
-    backdrop-filter: blur(10px);
-}
-nav{
-    position: fixed;
-    width: 100%;
-    font-family: 'Trebuchet MS';
-    z-index: 1;
-}
-nav,nav ul,nav ul li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    z-index: 3;
-}
-nav ul li{
-    font-weight: bold;
-    padding: 0px 10px;
-    margin: 0px 10px;
-    font-size: 20px;
-}
-nav ul li:nth-child(3){
-    color: white;
-    background: black;
-    border-radius: 5px;
-    padding: 5px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.61);
+    min-height: 100vh;
+    background: url(bg.jpg);
 }
 hero{
-    margin-top: 140px;
+    display: block; 
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+hero button{
+    display: grid;
+    position: relative;
+    font-family: "BBH Bartle";
+    top: 300px;
+    left: 38%;
+    font-size: 30px;
+    width: fit-content;
+    border-radius: 10px;
+    transition: 500ms;
+    color:white;
+    -webkit-text-stroke: 1px black;
+}
+hero button:hover{
+    box-shadow: rgba(175, 175, 175, 0.568) -5px -5px 10px , rgb(54, 54, 54) 5px 5px 10px;
+    -webkit-text-stroke: 1px black;
+    text-shadow: -2px -1px black;
+    transition: 500ms;
+}
+hero img{
+    position: absolute;
+    left:36%;
+    top:70%;
+    width: 28%;
+    height: 120%;
+}
+#title{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
-hero #intro span{
-    font-size: 120px;
+info{
+    backdrop-filter: blur(5px);
+    -webkit-text-stroke: 1px black;
+    font-family: "Bebas Neue";
+    font-size: 30px;
+    background: rgba(78, 78, 78, 0.822);
+    display: block;
+    width: 90%;
+    height: fit-content;
+    margin: 20px;
+    box-shadow: rgba(175, 175, 175, 0.568) -10px -10px 15px , rgb(54, 54, 54) 5px 5px 10px;
 }
-hero #intro span:nth-child(2){
+info span{
+    font-size: 70px;
+}
+text{
+    flex: 1;
+    text-align: justify;    
+}
+iframe{
+    border-radius: 10px;
+}
+teams{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.head{
+    font-family: "BBH Bartle";
+    -webkit-text-stroke: black 2px;
+    font-size: 100px;
+}
+.sub{
+    -webkit-text-stroke: black 0.9px;
+    font-family: "Bebas Neue";
     font-size: 50px;
 }
-hero #intro{
-    display: grid;
-    place-items: center;
-    margin: 30px;
-    font-size: 60px;
-    font-family: "Bebas Neue", sans-serif;
-    position: relative;
-    color: black;
-    top: 20px;
+.card{
+    width: 320px;
+    height: 500px;
 }
-main{
-    position: relative;
+.card img{
+    border-radius: 10px;
+    box-shadow: rgba(175, 175, 175, 0.568) -10px -10px 15px , rgb(54, 54, 54) 5px 5px 10px;
 }
-content{
-    position: relative;
-    height: 680px;
-    padding: 20px 40px;
-    color: white;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    font-family:"Bebas Neue";
-}
-content #link{
-    position: relative;
-    background:rgba(0, 0, 0, 0.5);;
-    aspect-ratio: 1/1;
-    width: 220%;
-    border-radius: 50%;
-}
-content #link::after{
-    content: "";
+.card p,.card span{
+    -webkit-text-stroke: 0.5px black;
     position: absolute;
-    height: 100%;
-    width:100%;
-    border-radius: 50%;
-    z-index: -2;
-    box-shadow: 0px 0px 0px 90px white;
-}
-content .Box{
-    font-size: 20px;
-    background: rgba(0, 0, 0, 0.363);
-    padding: 10px;
-    margin:20px 0px;
-    border-radius: 10px;
-    position: relative;
-    backdrop-filter: blur(10px);
-    z-index: -3;
-}
-content p,content .Title{
-    margin-left: 100px ;
-}
-content .Box .Title{
-    font-size: 30px;
-}
-gallery{
-    position: relative;
+    text-align: center;
     color: white;
-    display: flex;
-    padding: 50px;
-    justify-content: space-around;
-    align-items: center;
-}
-gallery .Title{
     font-size: 30px;
-    font-weight: bolder;  
+    padding: 20px;
+    font-family: "Bebas Neue";
 }
-gallery div{
-    position: relative;
-    text-align: justify;
-    font-family:"Vend Sans", sans-serif;
-    font-size: 20px;
-    background: white;
+.card p{
+    font-size: 18px;
+    top: 200px;
+    background: rgba(0, 0, 0, 0.342);
+    backdrop-filter: blur(2px);
+    height: 66%;
     border-radius: 10px;
-    height: 600px;
-    width:500px;
-    margin: 20px;
-    padding: 10px;
-    box-shadow: 0px 0px 5px 1px rgb(109, 109, 109);
-}
-gallery .Title,gallery .desc{
-    margin: 0%;
-    position: relative;
-    top:55%;
-    z-index: 3;
-}
-gallery div::after{
-    content: "";
-    width: 100%;
-    height: 48%;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.384);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: 10px;
-    border-radius: 10px;
-    bottom: 0%;
-    left:0%;
-    z-index: 2;
-    backdrop-filter: blur(10px);
-}
-gallery div:nth-child(1){
-    background: url(software.jpg);
-    background-size: cover;
-}
-gallery div:nth-child(2){
-    background: url(hardware.jpg);
-    background-size: cover;
-}
-gallery div:nth-child(3){
-    background: url(media.jpg);
-    background-size: cover;
 }
 footer{
-    color: white;
-    background: black;
-    font-family:"Vend Sans", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    width:100%;
 }
-footer img{
-    height: 30px;
-    width: 40px;
-}
-footer div:nth-child(1){
-    position: relative;
-    font-size: 22px;
-}
-footer div:nth-child(1)::after{
-    content: "";
-    position: absolute;
-    top: 90%;
-    left: -150%;
-    background: white;
-    border-radius: 5px;
-    height: 5px;
-    width: 500px;
-}
-footer div:nth-child(2){
-    display: grid;
-    place-items: center;
-    background: white;
-    border-radius: 50px;
-    width: 50px;
-    height: 50px;
-}
-footer div:nth-child(3){
-    color: black;
-    background: white;
-    font-size: 20px;
-    text-align: center;
-    padding: 5px;
-    width: 100%;
-}
-.circle{
-    position: absolute;
-    background:linear-gradient(rgb(87, 87, 87),rgb(192, 192, 192));
-    width:200px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    z-index: -5;
-}
-.circle:nth-child(1){
-    top:50px;
-    left:100px;
-    z-index: -1;
-}
-.circle:nth-child(2){
-    top:500px;
-    left:0px;
-    width:300px;
-    z-index: -1;
-}
-.circle:nth-child(3){
-    top:400px;
-    right:10px;
-    width:500px;
-}
-.circle:nth-child(4){
-    top:200px;
-    right:400px;
-}
-.circle:nth-child(5){
-    top:20px;
-    right:0px;
-}
-.circle:nth-child(6){
-    width:200px;
-    bottom:0px;
-    left:50px;
-    z-index: -1;
-}
-.circle:nth-child(7){
-    bottom:300px;
-    left:400px;
-    width:300px;
-    z-index: -2;
-}
-.circle:nth-child(8){
-    bottom:50px;
-    right:200px;
-    width:500px;
-}
-
-@media (max-width: 768px) {
-
-    nav {
-        padding: 15px 20px;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(0,0,0,0.95);
-        flex-direction: column;
+@media (max-width:900px){
+    #title{
+        margin-top: 14%;
         align-items: center;
         justify-content: center;
-        gap: 40px;
-        transition: 0.4s ease;
+        text-align: center;
     }
-
-    .nav-links li {
-        font-size: 24px;
+    info{
+        -webkit-text-stroke: 0px;
+        font-size: 17px;
+        width: 100%;
+        height: 140%;
+        flex-direction: column;
     }
-
-    #nav-toggle:checked ~ .nav-links {
-        right: 0;
+    hero button{
+        top: 300px;
+        left: 2%;
+        font-size: 15px;
     }
-
-  body {
-    min-height: auto;
-    min-width: 53%;
-  }
-
-  /* ===== NAV ===== */
-  nav {
-    padding: 10px 15px;
-    width: 53%;
-  }
-
-  nav ul {
-    gap: 10px;
-  }
-
-  nav ul li {
-    font-size: 14px;
-    margin: 0;
-    padding: 4px 6px;
-  }
-
-  /* ===== HERO ===== */
-  hero {
-    margin-top: 120px;
-    padding: 0 15px;
-    text-align: center;
-  }
-
-  hero #intro span {
-    font-size: 48px;
-    line-height: 1.1;
-  }
-
-  hero #intro span:nth-child(2) {
-    font-size: 22px;
-  }
-
-  button {
-    font-size: 20px;
-    margin-top: 20px;
-  }
-
-  /* ===== CONTENT SECTION ===== */
-  content {
-    flex-direction: column;
-    height: auto;
-    padding: 40px 20px;
-  }
-
-  content #link {
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  content #link::after{
-    box-shadow:none;
-  }
-
-  content p,
-  content .Title {
-    margin-left: 0;
-  }
-
-  content .Box {
-    font-size: 16px;
-  }
-
-  content .Box .Title {
-    font-size: 22px;
-  }
-
-  /* ===== GALLERY ===== */
-  gallery {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  gallery div {
-    width: 100%;
-    height: 500px;
-  }
-
-  gallery .Title {
-    font-size: 22px;
-  }
-
-  gallery .desc {
-    font-size: 16px;
-  }
-
-  /* ===== CIRCLES (background) ===== */
-  .circle {
-    opacity: 0.25;
-    filter: blur(20px);
-  }
-
-  footer div:nth-child(1)::after {
-    width: 250px;
-    left: -45%;
-  }
+    hero img{
+        top:160px;
+        left:22%;
+        width:200px;
+    }
+    info span{
+        font-size: 40px;
+    }
+    
+    .head{
+        font-size: 30px;
+    }
+    .sub{
+        font-size: 20px;
+    }
+    .card{
+        height: 120px;
+        width: 250px;
+        margin: 2px;
+        flex-shrink: 0;
+        margin-right: 200px;
+    }
+    .card img{
+        flex:0 1 100%;
+        scroll-snap-align: start;
+                
+    }
+    .card span{
+        font-size: 20px;
+    }
+    .card p{
+        top:186px;
+        font-size: 10px;
+        height: 60%;
+    }
+    box{
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        height:600px;
+        margin-left: 80px;
+    }
+    iframe{
+        width:80%;
+        height: 200px;
+    }
+}
+@media (min-width:901px){
+    teams{
+        justify-content: center;
+    }
 }
