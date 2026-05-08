@@ -10,8 +10,14 @@
 </head>
 <body>
 
+<!-- ── Hamburger (mobile) ── -->
+<button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+
+<!-- ── Sidebar Backdrop ── -->
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
 <!-- ── Sidebar ── -->
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
     <div class="logo">
         <img src="logoPrima.png" height="100px" width="200px">
     </div>
@@ -35,6 +41,414 @@
         <div class="status-dot"></div>
         <span id="live-clock">--:--:--</span>
     </div>
+</aside>
+
+<!-- ── Main Content ── -->
+<main class="main">
+
+    <!-- ════ PAGE: DASHBOARD ════ -->
+    <section class="page active" id="page-dashboard">
+        <div class="page-title">
+            <h1>Dashboard</h1>
+            <span class="badge" id="date-display">—</span>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="bento">
+
+            <!-- Sensor cards -->
+            <div class="bento-card card-suhu">
+                <div class="card-label">Suhu</div>
+                <div class="card-value" id="val-suhu">28<span class="unit">°C</span></div>
+                <div class="card-sub">Normal range 20–35°C</div>
+                <div class="card-icon">🌡️</div>
+            </div>
+
+            <div class="bento-card card-humidity">
+                <div class="card-label">Kelembaban</div>
+                <div class="card-value" id="val-humidity">72<span class="unit">%</span></div>
+                <div class="card-sub">Optimal</div>
+                <div class="card-icon">💧</div>
+            </div>
+
+            <div class="bento-card card-ph">
+                <div class="card-label">pH Tanah</div>
+                <div class="card-value" id="val-ph">6.8</div>
+                <div class="card-sub">Sedikit asam</div>
+                <div class="card-icon">🧪</div>
+            </div>
+
+            <div class="bento-card card-light">
+                <div class="card-label">Cahaya</div>
+                <div class="card-value" id="val-light">4.2<span class="unit">klx</span></div>
+                <div class="card-sub">Cukup</div>
+                <div class="card-icon">☀️</div>
+            </div>
+
+            <!-- Summary card wide -->
+            <div class="bento-card card-summary">
+                <div class="card-label">Statistik Tanaman</div>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-val">24</div>
+                        <div class="summary-key">Total Tanaman</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-val green">21</div>
+                        <div class="summary-key">Sehat</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-val yellow">2</div>
+                        <div class="summary-key">Perhatian</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-val red">1</div>
+                        <div class="summary-key">Kritis</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status card tall -->
+            <div class="bento-card card-status">
+                <div class="card-label">Status Sistem</div>
+                <div class="status-list">
+                    <div class="status-item">
+                        <span class="dot green"></span>
+                        <span>Sensor Suhu</span>
+                        <span class="ml-auto">Online</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="dot green"></span>
+                        <span>Sensor Humidity</span>
+                        <span class="ml-auto">Online</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="dot yellow"></span>
+                        <span>Sensor pH</span>
+                        <span class="ml-auto">Kalibrasi</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="dot green"></span>
+                        <span>Sensor Cahaya</span>
+                        <span class="ml-auto">Online</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="dot green"></span>
+                        <span>Data Logger</span>
+                        <span class="ml-auto">Aktif</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert card -->
+            <div class="bento-card card-alert">
+                <div class="card-label">Alert Terbaru</div>
+                <div class="alert-list">
+                    <div class="alert-item warn">
+                        <span>⚠</span>
+                        <div>
+                            <div class="alert-msg">pH tanah di zona B menurun</div>
+                            <div class="alert-time">2 jam lalu</div>
+                        </div>
+                    </div>
+                    <div class="alert-item info">
+                        <span>ℹ</span>
+                        <div>
+                            <div class="alert-msg">Jadwal penyiraman zona A</div>
+                            <div class="alert-time">5 jam lalu</div>
+                        </div>
+                    </div>
+                    <div class="alert-item ok">
+                        <span>✓</span>
+                        <div>
+                            <div class="alert-msg">Semua sensor normal</div>
+                            <div class="alert-time">Kemarin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ PAGE: MONITORING ════ -->
+    <section class="page" id="page-monitoring">
+        <div class="page-title">
+            <h1>Monitoring</h1>
+            <span class="badge">Mapping Tanaman</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="monitoring-controls">
+            <button class="btn-add" id="btn-add-plant">+ Tambah Tanaman</button>
+            <select class="select-zone" id="filter-zone">
+                <option value="all">Semua Zona</option>
+                <option value="A">Zona A</option>
+                <option value="B">Zona B</option>
+                <option value="C">Zona C</option>
+            </select>
+        </div>
+
+        <!-- Layout: Map + Stat Panel -->
+        <div class="map-layout">
+
+            <!-- MAP AREA -->
+            <div class="plant-map-wrapper">
+
+                <!-- Header kolom (A B C D ...) -->
+                <div class="map-col-headers" id="map-col-headers"></div>
+
+                <!-- Body: label baris + grid -->
+                <div class="map-body">
+                    <div class="map-row-labels" id="map-row-labels"></div>
+                    <div class="plant-grid" id="plant-grid"></div>
+                </div>
+            </div>
+
+            <!-- STAT PANEL (muncul saat card diklik) -->
+            <div class="stat-panel" id="stat-panel">
+                <div class="stat-panel-empty" id="stat-empty">
+                    <div style="font-size:2rem;">🌱</div>
+                    <div>Sentuh kartu tanaman<br>untuk melihat statistik</div>
+                </div>
+                <div class="stat-panel-content" id="stat-content" style="display:none;">
+                    <div class="stat-header">
+                        <div class="stat-name" id="stat-name">—</div>
+                        <div class="stat-zone" id="stat-zone">—</div>
+                        <div class="stat-badge" id="stat-badge">—</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-rows">
+                        <div class="stat-row">
+                            <span class="stat-key">🌡️ Suhu</span>
+                            <span class="stat-val" id="s-suhu">—</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">💧 Kelembaban</span>
+                            <span class="stat-val" id="s-hum">—</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">🧪 pH</span>
+                            <span class="stat-val" id="s-ph">—</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">⚡ EC</span>
+                            <span class="stat-val" id="s-ec">—</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">☀️ Cahaya</span>
+                            <span class="stat-val" id="s-light">—</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">📅 Update</span>
+                            <span class="stat-val" id="s-update">—</span>
+                        </div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-note" id="s-note">—</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ════ PAGE: RIWAYAT (GRAFIK) ════ -->
+    <section class="page" id="page-riwayat">
+        <div class="page-title">
+            <h1>Riwayat</h1>
+            <span class="badge">7 Hari Terakhir</span>
+        </div>
+
+        <div class="chart-bento">
+
+            <div class="chart-card chart-wide">
+                <div class="chart-header">
+                    <div class="card-label">Suhu (°C)</div>
+                    <div class="chart-legend">
+                        <span class="leg-dot blue"></span> Aktual
+                    </div>
+                </div>
+                <canvas id="chart-suhu"></canvas>
+            </div>
+
+            <div class="chart-card chart-wide">
+                <div class="chart-header">
+                    <div class="card-label">Kelembaban (%)</div>
+                    <div class="chart-legend">
+                        <span class="leg-dot teal"></span> Aktual
+                    </div>
+                </div>
+                <canvas id="chart-humidity"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="card-label">pH Tanah</div>
+                </div>
+                <canvas id="chart-ph"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="card-label">Cahaya (klx)</div>
+                </div>
+                <canvas id="chart-light"></canvas>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ── Modal Tambah Tanaman ── -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <div class="modal-title">Tambah Tanaman</div>
+            <button class="modal-close" id="modal-close">✕</button>
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Kolom</label>
+                    <select class="form-input" id="f-col">
+                        <option value="">Pilih kolom</option>
+                        <option>A</option><option>B</option><option>C</option>
+                        <option>D</option><option>E</option><option>F</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Baris</label>
+                    <select class="form-input" id="f-row">
+                        <option value="">Pilih baris</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Status Awal</label>
+                <div class="status-pills" id="f-status">
+                    <div class="pill active" data-val="sehat"     style="--c:#3fb950">● Sehat</div>
+                    <div class="pill"        data-val="perhatian" style="--c:#d29922">● Perhatian</div>
+                    <div class="pill"        data-val="kritis"    style="--c:#f85149">● Kritis</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Suhu (°C)</label>
+                    <input class="form-input" type="number" id="f-suhu" placeholder="28" min="10" max="50">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Kelembaban (%)</label>
+                    <input class="form-input" type="number" id="f-hum" placeholder="72" min="0" max="100">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">pH</label>
+                    <input class="form-input" type="number" id="f-ph" placeholder="6.8" min="0" max="14" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">EC (mS/cm)</label>
+                    <input class="form-input" type="number" id="f-ec" placeholder="2.5" min="0" max="10" step="0.1">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Cahaya (klx)</label>
+                <input class="form-input" type="number" id="f-light" placeholder="4.0" min="0" max="20" step="0.1">
+            </div>
+
+            <div class="form-error" id="form-error"></div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" id="btn-cancel">Batal</button>
+            <button class="btn-submit" id="btn-submit">+ Tambah</button>
+        </div>
+    </div>
+</div>
+
+<!-- ── Bottom Nav (mobile) ── -->
+<nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+        <button class="bottom-nav-btn active" data-page="dashboard">
+            <span class="bn-icon">⊞</span>
+            <span>Dashboard</span>
+        </button>
+        <button class="bottom-nav-btn" data-page="monitoring">
+            <span class="bn-icon">◈</span>
+            <span>Monitoring</span>
+        </button>
+        <button class="bottom-nav-btn" data-page="riwayat">
+            <span class="bn-icon">◎</span>
+            <span>Riwayat</span>
+        </button>
+    </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="Algorithms.js"></script>
+<script>
+    // ── Mobile sidebar toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const sidebar   = document.getElementById('sidebar');
+    const backdrop  = document.getElementById('sidebar-backdrop');
+
+    function openSidebar()  { sidebar.classList.add('open'); backdrop.classList.add('open'); }
+    function closeSidebar() { sidebar.classList.remove('open'); backdrop.classList.remove('open'); }
+
+    hamburger.addEventListener('click', openSidebar);
+    backdrop.addEventListener('click', closeSidebar);
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', closeSidebar);
+    });
+
+    // ── Bottom nav sync ──
+    const bottomBtns = document.querySelectorAll('.bottom-nav-btn');
+    bottomBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.page;
+
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            const sideBtn = document.querySelector('.nav-btn[data-page="' + target + '"]');
+            if (sideBtn) sideBtn.classList.add('active');
+
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + target).classList.add('active');
+
+            bottomBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (target === 'riwayat' && !chartsInitialized) {
+                initCharts();
+                chartsInitialized = true;
+            }
+        });
+    });
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.page;
+            bottomBtns.forEach(b => {
+                b.classList.toggle('active', b.dataset.page === target);
+            });
+        });
+    });
+</script>
+</body>
+    </html>    </div>
 </aside>
 
 <!-- ── Main Content ── -->
