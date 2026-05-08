@@ -849,3 +849,227 @@ canvas { width: 100% !important; }
 .bento-card:nth-child(5) { animation-delay: 160ms; }
 .bento-card:nth-child(6) { animation-delay: 200ms; }
 .bento-card:nth-child(7) { animation-delay: 240ms; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — Mobile & Tablet
+══════════════════════════════════════════ */
+
+/* ── Hamburger Button (mobile only) ── */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 200;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    color: var(--primary);
+}
+
+/* ── Sidebar overlay backdrop ── */
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 99;
+    backdrop-filter: blur(2px);
+}
+
+/* ── Bottom Nav Bar (mobile) ── */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    z-index: 150;
+    padding: 8px 0 12px;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+}
+
+.bottom-nav-inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 6px 20px;
+    border-radius: var(--r-sm);
+    transition: var(--transition);
+}
+
+.bottom-nav-btn .bn-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.bottom-nav-btn.active {
+    color: var(--primary);
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+    :root { --sidebar-w: 200px; }
+
+    .bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "suhu  hum"
+            "ph    light"
+            "sum   sum"
+            "stat  stat"
+            "alert alert";
+    }
+
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-panel {
+        position: static;
+        min-height: 200px;
+    }
+
+    .chart-bento {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-wide {
+        grid-column: 1;
+    }
+}
+
+/* ── Mobile (≤ 640px) ── */
+@media (max-width: 640px) {
+
+    /* Show hamburger & hide desktop sidebar */
+    .hamburger { display: flex; }
+    .bottom-nav { display: block; }
+
+    /* Sidebar slides in/out */
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 280ms ease;
+        z-index: 150;
+        width: 240px;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-backdrop.open {
+        display: block;
+    }
+
+    /* Main content takes full width, add bottom padding for bottom nav */
+    .main {
+        margin-left: 0;
+        padding: 16px 12px 80px 12px;
+        padding-top: 64px; /* space for hamburger */
+    }
+
+    /* Page title */
+    .page-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .page-title h1 { font-size: 1.4rem; }
+
+    /* Bento: stack all to single column on very small screens */
+    .bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "suhu  hum"
+            "ph    light"
+            "sum   sum"
+            "stat  stat"
+            "alert alert";
+        gap: 10px;
+    }
+
+    .card-value { font-size: 1.8rem; }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    /* Monitoring controls: stack vertically */
+    .monitoring-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-add, .select-zone {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Map: scrollable horizontally */
+    .map-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .plant-map-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 12px;
+    }
+
+    /* Stat panel full width below map */
+    .stat-panel {
+        position: static;
+        min-height: 160px;
+    }
+
+    /* Charts full width */
+    .chart-bento {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .chart-wide { grid-column: 1; }
+
+    /* Logo smaller */
+    .logo img {
+        width: 140px !important;
+        height: auto !important;
+    }
+
+    /* Modal full screen on mobile */
+    .modal {
+        width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-body { padding: 14px 16px; }
+}
